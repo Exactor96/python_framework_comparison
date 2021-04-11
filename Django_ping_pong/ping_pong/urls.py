@@ -13,15 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.http import JsonResponse
 from django.urls import path
 from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
 
 @api_view(['GET'])
 def ping(request):
-    return Response({'message': 'pong'})
+    return JsonResponse({'message': 'pong'})
 
 
 urlpatterns = [
